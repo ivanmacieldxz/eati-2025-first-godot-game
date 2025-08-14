@@ -157,4 +157,4 @@ zoom = Vector2(3, 3)
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xm55e")
 animation = &"walking"
-frame_progress = 0.196278
+frame_progress = 0.237295
