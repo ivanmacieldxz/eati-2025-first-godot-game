@@ -6,10 +6,7 @@ var is_dead = false
 var diagonally_orientated = false
 
 func _physics_process(delta: float) -> void:
-	if !is_dead:
-		if (Input.is_action_just_pressed("disparar")):
-			disparar()
-			
+	if !is_dead:	
 		var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		
 		await get_tree().process_frame
@@ -30,14 +27,6 @@ func _physics_process(delta: float) -> void:
 		
 		check_collisions()
 
-func disparar():
-	const BALA = preload("res://scenes/proyectil.tscn")
-	var disparo = BALA.instantiate()
-	
-	disparo.global_position = global_position
-	disparo.look_at(get_global_mouse_position())
-	get_parent().add_child(disparo)
-
 func check_collisions():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
@@ -47,13 +36,19 @@ func check_collisions():
 			node_collided.explode()
 
 func get_hit(damage):
+	print("was called")
 	await get_tree().process_frame
 	if !is_dead:
+		print("got here")
 		is_dead = true
 		if diagonally_orientated:
 			sprite.play("death_diagonally")
+			print("changed sprite to diagonal1")
 		else:
+			print("changed sprite to normal death")
 			sprite.play("death")
+			
 		await sprite.animation_looped
 		sprite.frame = 3
 		sprite.pause()
+		print("did die")

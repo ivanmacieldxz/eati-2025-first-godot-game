@@ -1,18 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://be1bucqj814y3"]
 
 [ext_resource type="Script" uid="uid://cjgtfkegkpc6f" path="res://scripts/proyectil.gd" id="1_w2e24"]
-[ext_resource type="Texture2D" uid="uid://co7sw2a12kesn" path="res://icon.svg" id="2_f1hqu"]
+[ext_resource type="Texture2D" uid="uid://xklfatq6gk07" path="res://assets/weapons/Projectiles/1.png" id="2_w2e24"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mldx"]
-size = Vector2(120, 120)
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1hqu"]
 
 [node name="Proyectil" type="Area2D"]
 script = ExtResource("1_w2e24")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_f1hqu")
+scale = Vector2(0.463334, 0.493431)
+texture = ExtResource("2_w2e24")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_8mldx")
+scale = Vector2(0.23965, 0.254704)
+shape = SubResource("CircleShape2D_f1hqu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
