@@ -23,6 +23,8 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = direction * speed
 	move_and_slide()
+	
+	check_collisions()
 
 func disparar():
 	const BALA = preload("res://scenes/proyectil.tscn")
@@ -31,4 +33,11 @@ func disparar():
 	disparo.global_position = global_position
 	disparo.look_at(get_global_mouse_position())
 	get_parent().add_child(disparo)
-	
+
+func check_collisions():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var node_collided = collision.get_collider()
+		
+		if node_collided.has_method("explode"):
+			node_collided.explode()
