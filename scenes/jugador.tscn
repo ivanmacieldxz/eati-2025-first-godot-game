@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bqar487ru1xj2"]
+[gd_scene load_steps=27 format=3 uid="uid://bqar487ru1xj2"]
 
 [ext_resource type="Script" uid="uid://csy10dfvy2n2f" path="res://scripts/jugador.gd" id="1_lhlt4"]
 [ext_resource type="Texture2D" uid="uid://4p1w083mg0or" path="res://assets/character/walk_v_h.png" id="2_lhlt4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bwnpj73qisgdy" path="res://assets/character/Death3.png" id="3_gynwn"]
 [ext_resource type="Script" uid="uid://dqe2tsn0yss8u" path="res://scripts/pivot.gd" id="6_xm55e"]
 [ext_resource type="Texture2D" uid="uid://546hqps22rli" path="res://assets/weapons/3.png" id="7_qimqe"]
+[ext_resource type="AudioStream" uid="uid://d2nfv4kvrkqbt" path="res://assets/sounds/blaster-103340.wav" id="8_qimqe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k64kw"]
 size = Vector2(18, 18)
@@ -174,3 +175,6 @@ scale = Vector2(0.623672, 0.668987)
 texture = ExtResource("7_qimqe")
 region_enabled = true
 region_rect = Rect2(8, 8, 32, 32)
+
+[node name="Sonido" type="AudioStreamPlayer2D" parent="Pivot/Arma"]
+stream = ExtResource("8_qimqe")

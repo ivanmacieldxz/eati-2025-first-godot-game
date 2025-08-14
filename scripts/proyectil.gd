@@ -17,6 +17,7 @@ func _on_body_entered(body: Node2D) -> void:
 	#verifico que el body sea el enemigo
 	if body.has_method("recibir_disparo"):
 		#hago que reciba el disparo
+		
 		body.recibir_disparo()
 		#lo hago desaparecer
 		queue_free()
