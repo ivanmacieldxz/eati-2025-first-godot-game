@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbmf4ww8i0m1l"]
+
+[ext_resource type="Script" uid="uid://by7fvqbhw2v0a" path="res://game_over_menu.gd" id="1_14ib6"]
+
+[node name="GameOverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_14ib6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 646.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 200.0
+offset_right = 626.0
+offset_bottom = 223.0
+text = "FIN DEL JUEGO"
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 294.0
+offset_right = 667.0
+offset_bottom = 317.0
+text = "Sobreviviste ??? Oleadeas"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 400.0
+offset_right = 614.0
+offset_bottom = 431.0
+text = "REINICIAR"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://qq0exphx3i8a"]
+
+[ext_resource type="Script" uid="uid://b6yjam0gu28g1" path="res://scenes/juego.gd" id="1_2ka1k"]
+[ext_resource type="PackedScene" uid="uid://coickd7j5gv5d" path="res://scenes/mundo.tscn" id="1_uc3sl"]
+[ext_resource type="PackedScene" uid="uid://bqar487ru1xj2" path="res://scenes/jugador.tscn" id="2_2ka1k"]
+
+[node name="Juego" type="Node2D"]
+script = ExtResource("1_2ka1k")
+
+[node name="Mundo" parent="." instance=ExtResource("1_uc3sl")]
+
+[node name="Jugador" parent="." instance=ExtResource("2_2ka1k")]
+position = Vector2(556, 324)
+
+[node name="PuntosAparicion" type="Node2D" parent="."]
+
+[node name="Punto1" type="Node2D" parent="PuntosAparicion"]
+position = Vector2(165, 136)
+
+[node name="Punto2" type="Node2D" parent="PuntosAparicion"]
+position = Vector2(221, 459)
+
+[node name="Punto3" type="Node2D" parent="PuntosAparicion"]
+position = Vector2(795, 519)
+
+[node name="Punto4" type="Node2D" parent="PuntosAparicion"]
+position = Vector2(804, 188)
+
+[node name="Enemigos" type="Node2D" parent="."]
+
+[connection signal="game_over" from="Jugador" to="." method="_on_jugador_game_over"]

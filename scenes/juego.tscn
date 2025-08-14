@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://qq0exphx3i8a"]
+[gd_scene load_steps=7 format=3 uid="uid://qq0exphx3i8a"]
 
 [ext_resource type="Script" uid="uid://b6yjam0gu28g1" path="res://scenes/juego.gd" id="1_2ka1k"]
 [ext_resource type="PackedScene" uid="uid://coickd7j5gv5d" path="res://scenes/mundo.tscn" id="1_uc3sl"]
 [ext_resource type="PackedScene" uid="uid://bqar487ru1xj2" path="res://scenes/jugador.tscn" id="2_2ka1k"]
+[ext_resource type="PackedScene" uid="uid://vtsglj0dlj6a" path="res://HUD.tscn" id="4_pew7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pew7j"]
+size = Vector2(1153, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iq6uk"]
+size = Vector2(12, 663)
 
 [node name="Juego" type="Node2D"]
 script = ExtResource("1_2ka1k")
@@ -27,3 +34,34 @@ position = Vector2(795, 519)
 position = Vector2(804, 188)
 
 [node name="Enemigos" type="Node2D" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("4_pew7j")]
+
+[node name="Paredes" type="Node2D" parent="."]
+
+[node name="ParedArriba" type="StaticBody2D" parent="Paredes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes/ParedArriba"]
+position = Vector2(581, 2)
+shape = SubResource("RectangleShape2D_pew7j")
+
+[node name="ParedAbajo" type="StaticBody2D" parent="Paredes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes/ParedAbajo"]
+position = Vector2(578, 652)
+shape = SubResource("RectangleShape2D_pew7j")
+
+[node name="ParedIzqq" type="StaticBody2D" parent="Paredes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes/ParedIzqq"]
+position = Vector2(-5, 321.5)
+shape = SubResource("RectangleShape2D_iq6uk")
+
+[node name="ParedIzqq2" type="StaticBody2D" parent="Paredes"]
+position = Vector2(37, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes/ParedIzqq2"]
+position = Vector2(1121, 328)
+shape = SubResource("RectangleShape2D_iq6uk")
+
+[connection signal="game_over" from="Jugador" to="." method="_on_jugador_game_over"]

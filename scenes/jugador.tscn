@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bqar487ru1xj2"]
+[gd_scene load_steps=28 format=3 uid="uid://bqar487ru1xj2"]
 
 [ext_resource type="Script" uid="uid://csy10dfvy2n2f" path="res://scripts/jugador.gd" id="1_lhlt4"]
 [ext_resource type="Texture2D" uid="uid://4p1w083mg0or" path="res://assets/character/walk_v_h.png" id="2_lhlt4"]
@@ -147,6 +147,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qimqe"]
+size = Vector2(28, 22)
+
 [node name="Jugador" type="CharacterBody2D"]
 script = ExtResource("1_lhlt4")
 
@@ -178,3 +181,14 @@ region_rect = Rect2(8, 8, 32, 32)
 
 [node name="Sonido" type="AudioStreamPlayer2D" parent="Pivot/Arma"]
 stream = ExtResource("8_qimqe")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(1.4941, 1.6559)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_qimqe")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_exited" from="Hurtbox" to="." method="_on_hurtbox_body_exited"]
