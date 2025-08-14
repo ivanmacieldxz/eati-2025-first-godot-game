@@ -4,13 +4,15 @@ extends CharacterBody2D
 @onready var speed = 100
 var target
 @onready var sprite = $AnimatedSprite2D
+var damage = 10
 
 signal enemigo_muerto
+signal harm_player(damage: int)
 
 func recibir_disparo():
 	vidas -= 1
 	if vidas == 0:
-		queue_free()
+		change_animation_and_die()
 		enemigo_muerto.emit()
 
 func _physics_process(delta: float) -> void:
@@ -28,9 +30,13 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		
 func explode():
+	change_animation_and_die()
+	harm_player.emit(damage)
+	enemigo_muerto.emit()
+
+func change_animation_and_die():
 	target = null
 	$CollisionShape2D.disabled = true
 	sprite.animation = "exploding"
 	await sprite.animation_looped
 	queue_free()
-	enemigo_muerto.emit()

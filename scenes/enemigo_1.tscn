@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bwka1d3ip30y7"]
 
-[ext_resource type="Script" uid="uid://bn2u078ku6po4" path="res://enemigo_1.gd" id="1_6hwuy"]
+[ext_resource type="Script" uid="uid://bn2u078ku6po4" path="res://scripts/enemigo_1.gd" id="1_6hwuy"]
 [ext_resource type="Texture2D" uid="uid://bacfoqwya0eun" path="res://assets/enemies/enemy1/RunSD.png" id="2_8v6o4"]
 [ext_resource type="Texture2D" uid="uid://dut5rxmvpyiym" path="res://assets/enemies/enemy1/DeathSD.png" id="2_shlar"]
 

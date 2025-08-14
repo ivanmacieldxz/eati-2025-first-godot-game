@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bonabjenix7lk"
-path="res://.godot/imported/walk_diagonaly.png-96ea03091be89863f26f8a05d69e004b.ctex"
+uid="uid://btmxhysckqrqh"
+path="res://.godot/imported/Death2.png-24595a17e722df21e2fbe4c0a9340358.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/walking sprites/walk_diagonaly.png"
-dest_files=["res://.godot/imported/walk_diagonaly.png-96ea03091be89863f26f8a05d69e004b.ctex"]
+source_file="res://assets/character/Death2.png"
+dest_files=["res://.godot/imported/Death2.png-24595a17e722df21e2fbe4c0a9340358.ctex"]
 
 [params]
 

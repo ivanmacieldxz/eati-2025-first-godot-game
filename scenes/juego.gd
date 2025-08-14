@@ -21,6 +21,7 @@ func invocar_enemigo(pos: Vector2):
 	instancia_enemigo.target = jugador
 	
 	instancia_enemigo.enemigo_muerto.connect(check_fin_ola)
+	instancia_enemigo.harm_player.connect(reduce_player_hp)
 	
 	$Enemigos.add_child(instancia_enemigo)
 
@@ -29,3 +30,6 @@ func check_fin_ola():
 	
 	if $Enemigos.get_children().is_empty():
 		crear_ola()
+
+func reduce_player_hp(damage):
+	$Jugador.get_hit(damage)

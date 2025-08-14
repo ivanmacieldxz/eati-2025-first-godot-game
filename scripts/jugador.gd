@@ -2,29 +2,33 @@ extends CharacterBody2D
 
 var speed = 300
 @onready var sprite = $Sprite2D
+var is_dead = false
+var diagonally_orientated = false
 
 func _physics_process(delta: float) -> void:
-	if (Input.is_action_just_pressed("disparar")):
-		disparar()
+	if !is_dead:
+		if (Input.is_action_just_pressed("disparar")):
+			disparar()
+			
+		var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	
-	await get_tree().process_frame
-	
-	if direction == Vector2.ZERO:
-		sprite.pause()
-	else:
-		if direction.x != 0 and direction.y != 0:
-			sprite.play("walking_diagonally")
+		await get_tree().process_frame
+		
+		if direction == Vector2.ZERO:
+			sprite.pause()
 		else:
-			sprite.play("walking")
-		#if Input.is_action_just_pressed("disparar"):
-			#disparar_en_movimiento()
-	
-	velocity = direction * speed
-	move_and_slide()
-	
-	check_collisions()
+			diagonally_orientated = direction.x != 0 and direction.y != 0
+			if diagonally_orientated:
+				sprite.play("walking_diagonally")
+			else:
+				sprite.play("walking")
+			#if Input.is_action_just_pressed("disparar"):
+				#disparar_en_movimiento()
+		
+		velocity = direction * speed
+		move_and_slide()
+		
+		check_collisions()
 
 func disparar():
 	const BALA = preload("res://scenes/proyectil.tscn")
@@ -41,3 +45,15 @@ func check_collisions():
 		
 		if node_collided.has_method("explode"):
 			node_collided.explode()
+
+func get_hit(damage):
+	await get_tree().process_frame
+	if !is_dead:
+		is_dead = true
+		if diagonally_orientated:
+			sprite.play("death_diagonally")
+		else:
+			sprite.play("death")
+		await sprite.animation_looped
+		sprite.frame = 3
+		sprite.pause()
