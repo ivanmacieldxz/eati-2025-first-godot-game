@@ -1,9 +1,9 @@
 extends Control
 
 
-func _on_boton_jugar_pressed() -> void:
+func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/juego.tscn")
 
 
-func _on_boton_salir_pressed() -> void:
+func _on_exit_button_pressed() -> void:
 	get_tree().quit()

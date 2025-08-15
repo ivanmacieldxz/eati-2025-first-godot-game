@@ -1,15 +1,15 @@
 extends Area2D
 
-@export var velocidad = 500
-@onready var recorrido_max = 300
-@onready var distancia = 0
+@export var speed = 500
+@onready var max_distance = 300
+@onready var distance = 0
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.RIGHT.rotated(rotation)
-	position += direction * velocidad * delta
-	distancia += velocidad * delta
+	position += direction * speed * delta
+	distance += speed * delta
 	
-	if distancia >= recorrido_max:
+	if distance >= max_distance:
 		queue_free()
 
 
