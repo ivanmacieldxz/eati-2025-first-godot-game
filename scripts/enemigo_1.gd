@@ -15,6 +15,9 @@ func _physics_process(delta: float) -> void:
 	if target:
 		sprite.play(sprite.animation)
 		var direction = (target.global_position - global_position).normalized()
+		
+		sprite.flip_h = direction.x < 0;
+		
 		velocity = direction * speed
 		var collision = move_and_collide(velocity * delta)
 		if collision and collision.get_collider() == target:
