@@ -4,8 +4,10 @@ extends Node2D
 @onready var enemies_count = 4
 
 func _ready():
+	invoke_enemy_wave()
+
+func invoke_enemy_wave():
 	var spawn_points = $SpawnPoints.get_children()
-	
 	for i in range(0, enemies_count):
 		await get_tree().create_timer(0.5).timeout
 		var random_pos = spawn_points.pick_random().global_position
@@ -18,4 +20,11 @@ func invoke_enemy(pos: Vector2):
 	enemy_instance.global_position = pos
 	enemy_instance.target = player
 	
-	add_child(enemy_instance)
+	enemy_instance.dead_enemy.connect(check_wave_end)
+	
+	$Enemies.add_child(enemy_instance)
+
+func check_wave_end():
+	await get_tree().process_frame
+	if ($Enemies.get_children().is_empty()):
+		invoke_enemy_wave()

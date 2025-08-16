@@ -1,26 +1,28 @@
 extends CharacterBody2D
 
-var speed = 300
+var speed = 100
 var moving = false
 @onready var animated_sprite = $AnimatedSprite2D
 @export var dead: bool = false
-
+var vida = 100
+var moving_diagonally = false
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("disparar"):
-		shoot()
+	if !dead:
+		if Input.is_action_just_pressed("disparar"):
+			shoot()
 	
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = direction * speed
-	moving = velocity != Vector2.ZERO
-	
-	change_moving_animation()
-	animated_sprite.play(animated_sprite.animation)
-	
-	move_and_slide()
+		var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		velocity = direction * speed
+		moving = velocity != Vector2.ZERO
+		
+		change_moving_animation()
+		animated_sprite.play(animated_sprite.animation)
+		
+		move_and_slide()
 	
 func change_moving_animation():
-	var moving_diagonally = velocity.x != 0 and velocity.y != 0
+	moving_diagonally = velocity.x != 0 and velocity.y != 0
 	
 	if moving_diagonally:
 		animated_sprite.animation = "walking_diagonally"
@@ -35,7 +37,18 @@ func shoot():
 		shot.imprecise = true
 	
 	shot.global_position = get_node("Pivot/Gun/BarrelEnd").global_position
-	shot.look_at(get_global_mouse_position())
+	shot.rotation = $Pivot.rotation
 	
 	get_parent().add_child(shot)
 	
+func get_hurt():
+	vida -= 10
+	if vida == 0:
+		dead = true
+		if moving_diagonally:
+			animated_sprite.animation = "death"
+		else:
+			animated_sprite.animation = "death_diagonally"
+		
+		animated_sprite.sprite_frames.set_animation_loop(animated_sprite.animation, false)
+		await animated_sprite.animation_finished

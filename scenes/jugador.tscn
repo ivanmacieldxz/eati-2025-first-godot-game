@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bqar487ru1xj2"]
+[gd_scene load_steps=27 format=3 uid="uid://bqar487ru1xj2"]
 
 [ext_resource type="Script" uid="uid://c5nnhix3ykp74" path="res://scripts/jugador.gd" id="1_lhlt4"]
 [ext_resource type="Texture2D" uid="uid://4p1w083mg0or" path="res://assets/character/walk_v_h.png" id="2_lhlt4"]
@@ -123,7 +123,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -143,20 +143,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k64kw"]
-size = Vector2(18, 18)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xm55e"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qimqe"]
+radius = 15.0
 
 [node name="Jugador" type="CharacterBody2D"]
 script = ExtResource("1_lhlt4")
-dead = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_b2nw0")
 animation = &"walking"
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_k64kw")
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xm55e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -165,10 +167,14 @@ zoom = Vector2(3, 3)
 script = ExtResource("6_xm55e")
 
 [node name="Gun" parent="Pivot" instance=ExtResource("6_gynwn")]
-z_index = 1
 position = Vector2(25, 0)
 rotation = -1.5708
 script = null
 
 [node name="BarrelEnd" type="Node2D" parent="Pivot/Gun"]
 position = Vector2(-2.62268e-07, 6)
+
+[node name="ExplosionHurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionHurtBox"]
+shape = SubResource("CircleShape2D_qimqe")

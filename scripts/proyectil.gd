@@ -11,7 +11,9 @@ func _physics_process(delta: float) -> void:
 	
 	if (imprecise):
 		direction = direction.rotated(
-			RandomNumberGenerator.new().randf_range(-imprecision_range, imprecision_range)
+			deg_to_rad(
+				RandomNumberGenerator.new().randf_range(-imprecision_range, imprecision_range)
+			)
 		)
 		imprecise = false
 	
