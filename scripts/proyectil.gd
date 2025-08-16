@@ -3,9 +3,18 @@ extends Area2D
 @export var speed = 500
 @onready var max_distance = 300
 @onready var distance = 0
+var imprecise = false
+@export var imprecision_range = 30
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.RIGHT.rotated(rotation)
+	
+	if (imprecise):
+		direction = direction.rotated(
+			RandomNumberGenerator.new().randf_range(-imprecision_range, imprecision_range)
+		)
+		imprecise = false
+	
 	position += direction * speed * delta
 	distance += speed * delta
 	

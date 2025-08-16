@@ -30,7 +30,12 @@ func change_moving_animation():
 func shoot():
 	const BULLET = preload("res://scenes/proyectil.tscn")
 	var shot = BULLET.instantiate()
+	
+	if moving:
+		shot.imprecise = true
+	
 	shot.global_position = get_node("Pivot/Gun/BarrelEnd").global_position
 	shot.look_at(get_global_mouse_position())
+	
 	get_parent().add_child(shot)
 	
