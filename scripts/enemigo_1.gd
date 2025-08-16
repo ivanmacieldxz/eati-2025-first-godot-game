@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 75
+var speed = 50
 var hp = 1
 var target
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -19,7 +19,6 @@ func _physics_process(delta: float) -> void:
 		var collision = move_and_collide(velocity * delta)
 		if collision and collision.get_collider() == target:
 			target.get_hurt()
-			target = null
 			explode()
 
 
@@ -27,9 +26,9 @@ func get_shot():
 	hp -= 1
 	if hp == 0:
 		explode()
-		queue_free()
 
 func explode():
+	target = null
 	remove_child(collision_shape)
 	sprite.animation = "exploding"
 	sprite.speed_scale = 2

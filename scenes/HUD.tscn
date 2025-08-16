@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://qsc5vwsblouu"]
+
+[ext_resource type="Script" uid="uid://ps6bc16ei15e" path="res://scripts/HUD.gd" id="1_5p55f"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_5p55f")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="LivesLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -511.5
+offset_top = -24.0
+offset_right = -398.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Lives: 0"
+vertical_alignment = 1
+
+[node name="WaveCountLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.499132
+anchor_top = 0.5
+anchor_right = 0.499132
+anchor_bottom = 0.5
+offset_left = 280.0
+offset_top = -24.0
+offset_right = 513.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Wave number: 0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://qq0exphx3i8a"]
+[gd_scene load_steps=5 format=3 uid="uid://qq0exphx3i8a"]
 
 [ext_resource type="Script" uid="uid://y77glyfv6jsl" path="res://scripts/juego.gd" id="1_2ka1k"]
 [ext_resource type="PackedScene" uid="uid://coickd7j5gv5d" path="res://scenes/mundo.tscn" id="1_uc3sl"]
 [ext_resource type="PackedScene" uid="uid://bqar487ru1xj2" path="res://scenes/jugador.tscn" id="2_2ka1k"]
+[ext_resource type="PackedScene" uid="uid://qsc5vwsblouu" path="res://scenes/HUD.tscn" id="2_pew7j"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2ka1k")
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [328.0]
+
+[node name="HUD" parent="." instance=ExtResource("2_pew7j")]
 
 [node name="WorldMap" parent="." instance=ExtResource("1_uc3sl")]
 
@@ -18,16 +21,52 @@ position = Vector2(576, 328)
 position = Vector2(88, 40)
 
 [node name="Point1" type="Node2D" parent="SpawnPoints"]
-position = Vector2(165, 136)
+position = Vector2(96, -64)
 
 [node name="Point2" type="Node2D" parent="SpawnPoints"]
-position = Vector2(221, 459)
+position = Vector2(424, -56)
 
 [node name="Point3" type="Node2D" parent="SpawnPoints"]
-position = Vector2(795, 519)
+position = Vector2(720, -56)
 
 [node name="Point4" type="Node2D" parent="SpawnPoints"]
-position = Vector2(804, 188)
+position = Vector2(926, -48)
+
+[node name="Point5" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1112, 376)
+
+[node name="Point6" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1104, 168)
+
+[node name="Point7" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1120, 80)
+
+[node name="Point8" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1120, 504)
+
+[node name="Point9" type="Node2D" parent="SpawnPoints"]
+position = Vector2(912, 680)
+
+[node name="Point10" type="Node2D" parent="SpawnPoints"]
+position = Vector2(392, 672)
+
+[node name="Point11" type="Node2D" parent="SpawnPoints"]
+position = Vector2(136, 672)
+
+[node name="Point12" type="Node2D" parent="SpawnPoints"]
+position = Vector2(736, 680)
+
+[node name="Point13" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-152, 360)
+
+[node name="Point14" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-120, 24)
+
+[node name="Point15" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-128, 440)
+
+[node name="Point16" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-160, 184)
 
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2(136, 56)

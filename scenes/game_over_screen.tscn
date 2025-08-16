@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://2lmrr2e2muay"]
+
+[ext_resource type="Script" uid="uid://bjcul8ocuvfsg" path="res://scripts/game_over_screen.gd" id="1_iwahs"]
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iwahs")
+metadata/_edit_horizontal_guides_ = [324.0, 128.0, 448.0]
+metadata/_edit_vertical_guides_ = [576.0]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EndGameTitleLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 128.0
+offset_right = 713.0
+offset_bottom = 195.0
+theme_override_font_sizes/font_size = 48
+text = "Game Over!"
+
+[node name="WaveCountLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 324.0
+offset_right = 696.0
+offset_bottom = 363.0
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 424.0
+offset_right = 652.0
+offset_bottom = 471.0
+theme_override_font_sizes/font_size = 28
+text = "Play Again"
+
+[node name="ExitButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 488.0
+offset_right = 652.0
+offset_bottom = 535.0
+theme_override_font_sizes/font_size = 28
+text = "Exit"
+
+[connection signal="pressed" from="Panel/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="Panel/ExitButton" to="." method="_on_exit_button_pressed"]

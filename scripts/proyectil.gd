@@ -4,7 +4,7 @@ extends Area2D
 @onready var max_distance = 300
 @onready var distance = 0
 var imprecise = false
-@export var imprecision_range = 30
+@export var imprecision_range = 45
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.RIGHT.rotated(rotation)
