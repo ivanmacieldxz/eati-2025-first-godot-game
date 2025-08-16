@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://dt2suoy4jgudg"]
+
+[ext_resource type="Texture2D" uid="uid://546hqps22rli" path="res://assets/weapons/3.png" id="1_0fmgw"]
+[ext_resource type="Script" uid="uid://dbm6ydgc5k70v" path="res://scripts/pivot.gd" id="1_rh7jv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh7jv"]
+atlas = ExtResource("1_0fmgw")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6xlu"]
+atlas = ExtResource("1_0fmgw")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ytve"]
+atlas = ExtResource("1_0fmgw")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqxg2"]
+atlas = ExtResource("1_0fmgw")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n64ry"]
+atlas = ExtResource("1_0fmgw")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ythem"]
+atlas = ExtResource("1_0fmgw")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpsn0"]
+atlas = ExtResource("1_0fmgw")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o43v8"]
+atlas = ExtResource("1_0fmgw")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sclk"]
+atlas = ExtResource("1_0fmgw")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvaxy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh7jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6xlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ytve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqxg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n64ry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ythem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpsn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o43v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sclk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Arma" type="Node2D"]
+script = ExtResource("1_rh7jv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jvaxy")

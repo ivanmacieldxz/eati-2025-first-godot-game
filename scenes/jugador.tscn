@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dpvamdujt7en" path="res://assets/character/Death1.png" id="2_qimn5"]
 [ext_resource type="Texture2D" uid="uid://bonabjenix7lk" path="res://assets/character/walk_diagonaly.png" id="3_28edd"]
 [ext_resource type="Texture2D" uid="uid://btmxhysckqrqh" path="res://assets/character/Death2.png" id="3_xm55e"]
-[ext_resource type="Texture2D" uid="uid://546hqps22rli" path="res://assets/weapons/3.png" id="7_qimqe"]
-[ext_resource type="AudioStream" uid="uid://d2nfv4kvrkqbt" path="res://assets/sounds/blaster-103340.wav" id="8_qimqe"]
+[ext_resource type="PackedScene" uid="uid://dt2suoy4jgudg" path="res://scenes/arma.tscn" id="6_gynwn"]
+[ext_resource type="Script" uid="uid://dbm6ydgc5k70v" path="res://scripts/pivot.gd" id="6_xm55e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qimqe"]
 atlas = ExtResource("2_qimn5")
@@ -162,16 +162,13 @@ shape = SubResource("RectangleShape2D_k64kw")
 zoom = Vector2(3, 3)
 
 [node name="Pivot" type="Node2D" parent="."]
+script = ExtResource("6_xm55e")
 
-[node name="Arma" type="Node2D" parent="Pivot"]
-
-[node name="SpriteArma" type="Sprite2D" parent="Pivot/Arma"]
-position = Vector2(32, 0)
+[node name="Gun" parent="Pivot" instance=ExtResource("6_gynwn")]
+z_index = 1
+position = Vector2(25, 0)
 rotation = -1.5708
-scale = Vector2(0.623672, 0.668987)
-texture = ExtResource("7_qimqe")
-region_enabled = true
-region_rect = Rect2(8, 8, 32, 32)
+script = null
 
-[node name="Sonido" type="AudioStreamPlayer2D" parent="Pivot/Arma"]
-stream = ExtResource("8_qimqe")
+[node name="BarrelEnd" type="Node2D" parent="Pivot/Gun"]
+position = Vector2(-2.62268e-07, 6)
