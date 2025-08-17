@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bwka1d3ip30y7"]
+[gd_scene load_steps=17 format=3 uid="uid://bwka1d3ip30y7"]
 
 [ext_resource type="Script" uid="uid://esxgdu4j3ju0" path="res://scripts/enemigo_1.gd" id="1_6hwuy"]
 [ext_resource type="Texture2D" uid="uid://bacfoqwya0eun" path="res://assets/enemies/enemy1/RunSD.png" id="2_8v6o4"]
 [ext_resource type="Texture2D" uid="uid://dut5rxmvpyiym" path="res://assets/enemies/enemy1/DeathSD.png" id="2_shlar"]
+[ext_resource type="AudioStream" uid="uid://yf3aqugek83v" path="res://assets/sounds/explosion.wav" id="4_shlar"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv2y0"]
 atlas = ExtResource("2_shlar")
@@ -100,3 +101,6 @@ animation = &"walking"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_shlar")
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_shlar")

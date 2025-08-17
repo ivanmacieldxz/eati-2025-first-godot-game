@@ -35,6 +35,13 @@ func explode():
 	remove_child(collision_shape)
 	sprite.animation = "exploding"
 	sprite.speed_scale = 2
+	explode_sound()
 	await sprite.animation_looped
+	
 	dead_enemy.emit()
 	queue_free()
+
+func explode_sound():
+	var sonido = $Explosion
+	add_child(sonido)
+	sonido.play()

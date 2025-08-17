@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dt2suoy4jgudg"]
+[gd_scene load_steps=14 format=3 uid="uid://dt2suoy4jgudg"]
 
 [ext_resource type="Texture2D" uid="uid://546hqps22rli" path="res://assets/weapons/3.png" id="1_0fmgw"]
 [ext_resource type="Script" uid="uid://dbm6ydgc5k70v" path="res://scripts/pivot.gd" id="1_rh7jv"]
+[ext_resource type="AudioStream" uid="uid://d2nfv4kvrkqbt" path="res://assets/sounds/blaster-103340.wav" id="3_p6xlu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rh7jv"]
 atlas = ExtResource("1_0fmgw")
@@ -79,3 +80,6 @@ script = ExtResource("1_rh7jv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jvaxy")
+
+[node name="Sonido" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p6xlu")

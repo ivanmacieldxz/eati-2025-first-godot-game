@@ -53,8 +53,14 @@ func shoot():
 	
 	shot.global_position = get_node("Pivot/Gun/BarrelEnd").global_position
 	shot.rotation = $Pivot.rotation
-	
+	shoot_sound()
 	get_parent().add_child(shot)
+
+	
+func shoot_sound():
+	var sonido = $Pivot/Gun/Sonido
+	add_child(sonido)
+	sonido.play()
 	
 func get_hurt():
 	Global.player_hp -= 1
